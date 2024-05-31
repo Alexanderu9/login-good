@@ -14,7 +14,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Sirviendo archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+app.get('/', (req,res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+})
 
 // Conectar a MongoDB Atlas
 const uri = process.env.DB_MONGO_URI
