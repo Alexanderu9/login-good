@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login y Register - app</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <main>
+        <div class="contenedor__todo">
+            <div class="caja__trasera">
+                <div class="caja__trasera-login">
+                    <h3>¿Você já tem uma conta?</h3>
+                    <p>Faça login para entrar na página</p>
+                    <button id="btn__iniciar-sesion">Iniciar sessão</button>
+                </div>
+                <div class="caja__trasera-register">
+                    <h3>¿Não tens uma conta ainda?</h3>
+                    <p>Registre-se para poder fazer login</p>
+                    <button id="btn__registrarse">Regístrarse</button>
+                </div>
+            </div>
+
+            <!--Formulario de Login y registro-->
+            <div class="contenedor__login-register">
+                <!--Login-->
+                <form id="loginForm" action="" method="POST" class="formulario__login">
+                    <h2>Iniciar sessão</h2>
+                    <input type="email" id="login_email" placeholder="Email" required>
+                    <input type="password" id="login_senha" placeholder="Senha" required>
+                    <button>Entrar</button>
+                </form>
+
+                <!--Register-->
+                <form id="registerForm" action="" method="POST" class="formulario__register">
+                    <h2>Regístrarse</h2>
+                    <input type="text" id="Nome_completo" placeholder="Nome completo" name="Nome_completo" required>
+                    <input type="email" id="Email" placeholder="Email" name="Email" required>
+                    <input type="text" id="Usuario" placeholder="Usuario" name="Usuario" required>
+                    <input type="password" id="Senha" placeholder="Senha" name="Senha" required>
+                    <button>Regístrarse</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const Nome_completo = document.getElementById('Nome_completo').value;
+            const Email = document.getElementById('Email').value;
+            const Usuario = document.getElementById('Usuario').value;
+            const Senha = document.getElementById('Senha').value;
+
+            const response = await fetch('/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ Nome_completo, Email, Usuario, Senha })
+            });
+            const data = await response.text();
+            alert(data);
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const Email = document.getElementById('login_email').value;
+            const Senha = document.getElementById('login_senha').value;
+
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ Email, Senha })
+            });
+            const data = await response.json();
+            if (data.token) {
+                alert('login realizado com sucesso');
+            } else {
+                alert('Erro de login');
+            }
+        });
+    </script>
+</body>
+</html>
