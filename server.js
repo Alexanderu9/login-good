@@ -49,7 +49,7 @@ const User = mongoose.model('User', userSchema);
 // Rutas
 
 // Registro
-app.post('/register', async (req, res) => {
+app.post('/api/register', async (req, res) => {
   const { Nome_completo, Email, Usuario, Senha } = req.body;
   try {
     const hashedPassword = await bcrypt.hash(Senha, 10);
@@ -71,7 +71,7 @@ app.post('/register', async (req, res) => {
 });
 
 // Login
-app.post('/login', async (req, res) => {
+app.post('/api/login', async (req, res) => {
   const { Email, Senha } = req.body;
   try {
     const user = await User.findOne({ Email });
