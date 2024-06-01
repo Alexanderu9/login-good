@@ -1,6 +1,6 @@
 {
-    "rewrites": [
-      { "source": "/register", "destination": "/api/register" },
-      { "source": "/login", "destination": "/api/login" }
-    ]
-  }
+  "rewrites": [
+    { "source": "/register", "destination": "/api/register" },
+    { "source": "/login", "destination": "/api/login" }
+  ]
+}
