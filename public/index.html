@@ -56,13 +56,16 @@
             const Usuario = document.getElementById('Usuario').value;
             const Senha = document.getElementById('Senha').value;
 
-            const response = await fetch('/register', {
+            const response = await fetch('/api/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ Nome_completo, Email, Usuario, Senha })
             });
             const data = await response.text();
             alert(data);
+        }catch (error) {
+                alert('Error de registro');
+             }
         });
 
         document.getElementById('loginForm').addEventListener('submit', async (e) => {
@@ -70,7 +73,7 @@
             const Email = document.getElementById('login_email').value;
             const Senha = document.getElementById('login_senha').value;
 
-            const response = await fetch('/login', {
+            const response = await fetch('/api/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ Email, Senha })
