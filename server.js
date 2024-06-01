@@ -14,16 +14,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Sirviendo archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req,res) => {
+// Rutas para servir archivos estáticos
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
-})
+});
 
-app.get('/game', (req,res) => {
+app.get('/game', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'game.html'));
-})
+});
 
 // Conectar a MongoDB Atlas
-const uri = process.env.DB_MONGO_URI
+const uri = process.env.DB_MONGO_URI;
 
 mongoose.connect(uri, {
   useNewUrlParser: true,
@@ -46,7 +47,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-// Rutas
+// Rutas de la API
 
 // Registro
 app.post('/api/register', async (req, res) => {
