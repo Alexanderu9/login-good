@@ -56,6 +56,8 @@
             const Usuario = document.getElementById('Usuario').value;
             const Senha = document.getElementById('Senha').value;
 
+              try {
+
             const response = await fetch('/api/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -73,6 +75,8 @@
             const Email = document.getElementById('login_email').value;
             const Senha = document.getElementById('login_senha').value;
 
+
+         try {
             const response = await fetch('/api/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -86,6 +90,8 @@
             } else {
                 alert('Erro de login');
             }
+             } catch (error) {
+                alert('Error de login');
         });
     </script>
 </body>
