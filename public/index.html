@@ -78,6 +78,7 @@
             const data = await response.json();
             if (data.token) {
                 alert('login realizado com sucesso');
+                location.href = window.origin + "/game"
                 
             } else {
                 alert('Erro de login');
