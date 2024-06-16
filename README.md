@@ -1,5 +1,6 @@
 Guia de Execução do Aplicativo
-Este aplicativo consiste em dois repositórios: login-good e firstproject-proyecto. Siga os passos abaixo para baixar, configurar e executar o aplicativo corretamente.
+Este aplicativo consiste em dois repositórios: login-good e firstproject-proyecto. 
+Siga os passos abaixo para baixar, configurar e executar o aplicativo corretamente.
 
 Passos para Configuração e Execução
 Baixar os Repositórios
@@ -14,8 +15,6 @@ Executar o Servidor
 
 No Visual Studio Code, abra o terminal.
 No terminal, digite o seguinte comando para iniciar o servidor:
-bash
-Copiar código
 npm rum start
 Acessar o Aplicativo
 
