@@ -15,7 +15,7 @@ Executar o Servidor
 
 No Visual Studio Code, abra o terminal.
 No terminal, digite o seguinte comando para iniciar o servidor:
-npm rum start
+(npm rum start)
 Acessar o Aplicativo
 
 Após iniciar o servidor, abra o navegador de sua preferência.
