@@ -11,10 +11,10 @@ require('dotenv').config();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Sirviendo archivos estáticos
+// Servindo arquivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Rutas para servir archivos estáticos
+// Rotas para servir arquivos estáticos
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
@@ -23,7 +23,7 @@ app.get('/game', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'game.html'));
 });
 
-// Conectar a MongoDB Atlas
+// Conecte-se ao MongoDB Atlas
 const uri = process.env.DB_MONGO_URI;
 
 mongoose.connect(uri, {
@@ -31,13 +31,13 @@ mongoose.connect(uri, {
   useUnifiedTopology: true,
 })
 .then(() => {
-  console.log("Conectado a MongoDB Atlas");
+  console.log("Conectado ao MongoDB Atlas");
 })
 .catch((err) => {
-  console.error("Error al conectar a MongoDB Atlas:", err);
+  console.error("Erro ao conectar-se ao MongoDB Atlas:", err);
 });
 
-// Esquema y Modelo de Usuario
+// Esquema e modelo de usuário
 const userSchema = new mongoose.Schema({
   Nome_completo: { type: String, required: true },
   Email: { type: String, required: true, unique: true },
@@ -47,7 +47,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-// Rutas de la API
+// Rotas de API
 
 // Registro
 app.post('/api/register', async (req, res) => {
@@ -56,7 +56,7 @@ app.post('/api/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(Senha, 10);
     const existingUser = await User.findOne({ Email });
     if (existingUser) {
-      return res.status(400).send('Este correo electrónico ya está registrado');
+      return res.status(400).send('Este e-mail já está registado');
     }
     const newUser = new User({
       Nome_completo,
