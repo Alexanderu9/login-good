@@ -133,7 +133,11 @@ main{
     outline: none;
 }
 
-
+#jogo{
+    color: #fff;
+    margin-left: 20 px;
+    margin-bottom: 20 px;
+}
 
 
 .formulario__login{
