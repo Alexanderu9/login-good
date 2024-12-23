@@ -25,10 +25,12 @@ main{
 
     text-decoration: none;
     color: rgb(20, 193, 212);
+
+    margin: 40px;
 }
 
 #Efecto:hover {
-    color: #000;
+    color: #fff;
 }
 
 .contenedor__todo{
