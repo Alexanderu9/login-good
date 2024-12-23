@@ -21,6 +21,16 @@ main{
     margin-top: 100px;
 }
 
+#Efecto {
+
+    text-decoration: none;
+    color: rgb(20, 193, 212);
+}
+
+#Efecto:hover {
+    color: #000;
+}
+
 .contenedor__todo{
     width: 100%;
     max-width: 800px;
